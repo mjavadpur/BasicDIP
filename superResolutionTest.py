@@ -1,6 +1,6 @@
-from Utils.superResolution import superResOpenCV 
 import cv2
 import matplotlib.pyplot as plt
+from Utils.superResolution import superResOpenCV
 
 image = cv2.imread("images/family.jpg")
 higRes = image.copy()
