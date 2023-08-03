@@ -16,9 +16,3 @@ def apply_gabor_filters(image, frequency:float =0.2, theta: float =0.4):
     gabor_filters = gabor(image, frequency=frequency, theta=theta)
     filtered_image = gabor_filters[0]
     return filtered_image
-
-def compute_lpq(image, radius:int = 3):
-    n_points = 8 * radius
-    lpq = local_binary_pattern(image, n_points, radius, method='uniform')
-    return lpq           
-        
