@@ -5,9 +5,9 @@ import cv2
 import numpy as np
 import torch
 import RRDBNet_arch as arch
-from basicsr.utils.download_util import load_file_from_url
 
 thisFileRoot = 'SRWithDeepLearning\\EDSR\\' 
+# model_name = 'RRDB_ESRGAN_x4'  
 # file_url = ['https://github.com/mjavadpur/ESRGAN/blob/main/models/RRDB_ESRGAN_x4.pth']
 # file_url = ['https://drive.google.com/file/d/1TPrz5QKd8DHHt1k8SRtm6tMiPjz_Qene/view?usp=drive_link']
 
@@ -17,15 +17,6 @@ thisFileRoot = 'SRWithDeepLearning\\EDSR\\'
 
 
 model_path = thisFileRoot + 'models\\RRDB_ESRGAN_x4.pth'  # models/RRDB_ESRGAN_x4.pth OR models/RRDB_PSNR_x4.pth
-# model_path = os.path.join('..\\models', model_name + '.pth')
-model_path1 = glob.glob(model_path)
-model_path2 = glob.glob('models')
-# if not os.path.isfile(model_path):
-#     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-#     for url in file_url:
-#         # model_path will be updated
-#         model_path = load_file_from_url(
-#             url=url, model_dir=os.path.join(ROOT_DIR, 'models'), progress=True, file_name=None)
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # if you want to run on CPU, change 'cuda' -> cpu
