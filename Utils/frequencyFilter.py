@@ -69,8 +69,8 @@ def create_mask(image, radius):
     cv2.circle(base, (image.shape[1]//2, image.shape[0]//2), int(radius), (1, 1, 1), -1, 8, 0)
     return base
 
-def low_pass_filter(radius):
-    fshiftB, fshiftG, fshiftR = fftshift()
+def low_pass_filter(image, radius):
+    fshiftB, fshiftG, fshiftR = fftshift(image=image)
     
     mask = create_mask(radius)
     
@@ -85,9 +85,9 @@ def low_pass_filter(radius):
     return ifshift
 
 
-def high_pass_filter(radius):
+def high_pass_filter(image, radius):
     
-    fshiftB, fshiftG, fshiftR = fftshift()
+    fshiftB, fshiftG, fshiftR = fftshift(image)
     
     mask = create_mask(radius)
     
@@ -101,11 +101,11 @@ def high_pass_filter(radius):
     
     
 
-def band_pass_filter(min_radius, max_radius):
+def band_pass_filter(image, min_radius, max_radius):
     
     
     
-    fshiftB, fshiftG, fshiftR = fftshift()
+    fshiftB, fshiftG, fshiftR = fftshift(image)
     
     min_mask = create_mask(min_radius)
     max_mask = create_mask(max_radius)
@@ -121,9 +121,9 @@ def band_pass_filter(min_radius, max_radius):
     
     
 
-def band_reject_filter(min_radius, max_radius):
+def band_reject_filter(image, min_radius, max_radius):
     
-    fshiftB, fshiftG, fshiftR = fftshift()
+    fshiftB, fshiftG, fshiftR = fftshift(image)
     
     min_mask = create_mask(min_radius)
     max_mask = create_mask(max_radius)
