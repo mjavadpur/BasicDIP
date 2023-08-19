@@ -29,7 +29,15 @@ def apply_log_transform(image, c=1):
     :param c: Constant for scaling the transformation.
     """
     log_transformed = c * np.log(1 + image)
-    return np.array(log_transformed, dtype='uint8')
+    
+    log_transformed = np.array(log_transformed, dtype='uint8')
+    
+    minVal = np.min(log_transformed)
+    maxVal = np.max(log_transformed)
+    
+    log_transformed = (log_transformed-minVal)/(maxVal-minVal) * 255
+    log_transformed = np.array(log_transformed, dtype='uint8')
+    return log_transformed
 
 def apply_contrast_stretching(image, r_min=0, r_max=255):
     """
