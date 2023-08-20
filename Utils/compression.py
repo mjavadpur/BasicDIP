@@ -4,6 +4,10 @@ import heapq
 import os
 from collections import defaultdict
 
+# def compress_using_jpeg(image, modifiedFileName = 'modified_img.jpg',  quality = 10):
+#     cv2.imwrite('modified_img.jpg', image, [int(cv2.IMWRITE_JPEG_QUALITY), quality])
+
+
 def compress_using_jpeg(image, quality):
     """
     Compresses the image using JPEG compression.
